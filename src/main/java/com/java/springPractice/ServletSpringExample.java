@@ -21,7 +21,7 @@ public class ServletSpringExample {
         return new ModelAndView("bigboss");
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
     public ModelAndView post(@ModelAttribute("input") Input input) {
         ModelAndView modelAndView = new ModelAndView("show");
         modelAndView.addObject("message", "testing");
@@ -43,9 +43,6 @@ public class ServletSpringExample {
     }
 
     private boolean validate(Input input) {
-        if (input.getFolder_path() == null || input.getFolder_path().equals("") || input.getSearch_key().equals("") || input.getSearch_key() == null || input.getThread_count().equals("") || input.getThread_count() == null) {
-            return false;
-        }
-        return true;
+        return input.getFolder_path() != null && !input.getFolder_path().equals("") && !input.getSearch_key().equals("") && input.getSearch_key() != null && !input.getThread_count().equals("") && input.getThread_count() != null;
     }
 }
