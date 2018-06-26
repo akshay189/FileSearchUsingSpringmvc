@@ -5,9 +5,9 @@
 <a href= "<c:url value = '/'/>">
  <button>
  back
- </button>
- </a>
-<div class=".divone" style="text-align:center">
+  </button>
+  </a>
+  <div class=".divone" style="text-align:center">
 <a href= "<c:url value = '/j_spring_security_logout/'/>">
 <button>
 logout

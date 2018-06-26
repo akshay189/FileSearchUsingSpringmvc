@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.java.models.Users" table = "Users">
+
+        <id name = "username" type = "string" column = "username">
+        </id>
+        <property name = "password" column = "password" type = "string"/>
+        <property name = "userroles" column = "userroles" type = "string"/>
+    </class>
+</hibernate-mapping>

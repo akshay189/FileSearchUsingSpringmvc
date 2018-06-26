@@ -13,18 +13,27 @@ import java.util.Map;
 
 
 @Controller
-public class ServletSpringExample {
+public class WordSearchController {
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public ModelAndView get() {
-        System.out.println("IN GET");
-        return new ModelAndView("bigboss");
+
+    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+    public ModelAndView accessDeniedMethod()
+    {
+        ModelAndView modelAndView = new ModelAndView("accessDenied");
+        modelAndView.addObject("message","You cannot access this url 403 forbidden");
+        return modelAndView;
     }
-
+    @RequestMapping(value = "/admin",method = RequestMethod.GET)
+    public ModelAndView testAdmin()
+    {
+        ModelAndView modelAndView = new ModelAndView("testAdmin");
+        modelAndView.addObject("message","You are admin");
+        return modelAndView;
+    }
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     public ModelAndView post(@ModelAttribute("input") Input input) {
-        ModelAndView modelAndView = new ModelAndView("show");
-        modelAndView.addObject("message", "testing");
+        ModelAndView modelAndView = new ModelAndView("result");
+        modelAndView.addObject("message", "Search Result: ");
         if (validate(input)) {
             WordSearch wordSearch = new WordSearch();
             try {
